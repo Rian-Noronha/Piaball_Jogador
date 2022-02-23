@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "188279718764",
+    "project_id": "piaball-jogador-109e6",
+    "storage_bucket": "piaball-jogador-109e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:188279718764:android:803797a6380d7b6484a949",
+        "android_client_info": {
+          "package_name": "com.rian_noronha.piaball_jogador"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "188279718764-0to9ujpthao5l75au5uqc4i2qoqjni94.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rian_noronha.piaball_jogador",
+            "certificate_hash": "a98c35c2affe37c79ec6c2a649bc917ead517c5b"
+          }
+        },
+        {
+          "client_id": "188279718764-68l5ug2k563visafqad1r3u3mgbg7mbg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArJKn_NvZGkUyFEhpgw_0dSjaQazcBRTU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "188279718764-68l5ug2k563visafqad1r3u3mgbg7mbg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
