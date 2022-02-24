@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Piaball_Jogador">
         <activity
+            android:name=".add_jogos.AddJogoActivity"
+            android:exported="false" />
+        <activity
             android:name=".dados_cadastrais.LoginActivity"
             android:exported="false" />
         <activity

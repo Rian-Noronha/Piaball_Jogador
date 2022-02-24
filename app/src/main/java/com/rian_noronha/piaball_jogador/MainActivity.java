@@ -15,7 +15,7 @@ import com.rian_noronha.piaball_jogador.dados_cadastrais.LoginActivity;
 import com.rian_noronha.piaball_jogador.nav_drawer.NavDrawerActivity;
 
 public class MainActivity extends IntroActivity {
-    private FirebaseAuth firebaseAuth = ConfiguracaoFirebase.getFirebaseAuth();
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +44,18 @@ public class MainActivity extends IntroActivity {
 
     }
 
-    public void testeNavDrawer(View view){
+    public void irNavDrawer(){
         startActivity(new Intent(MainActivity.this, NavDrawerActivity.class));
+    }
+
+    public void verificarUsuarioLogado(){
+        firebaseAuth = ConfiguracaoFirebase.getFirebaseAuth();
+
+        if(firebaseAuth.getCurrentUser() != null){//se o usuário existir
+            irNavDrawer();
+        }
+
+
     }
 
     public void irSeCadastrar(View view){
@@ -56,6 +66,9 @@ public class MainActivity extends IntroActivity {
         startActivity(new Intent(MainActivity.this, LoginActivity.class));
     }
 
-
-
+    @Override
+    protected void onStart() {
+        super.onStart();
+        verificarUsuarioLogado();
+    }
 }

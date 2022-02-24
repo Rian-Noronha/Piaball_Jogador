@@ -10,7 +10,7 @@
 
     <!-- Caixa de textos para a tela de introdução de cadastro-->
     <string name="motiva_criar_conta">Crie sua conta grátis</string>
-    <string name="motiva1">O Espia Ball vai estar junto com você</string>
+    <string name="motiva1">O Piaball Jogador vai estar junto com você</string>
     <string name="btn_cadastrar">CADASTRE-SE</string>
     <string name="tenho_conta">Já tenho conta</string>
     <string name="title_activity_nav_drawer">NavDrawerActivity</string>
@@ -38,7 +38,6 @@
     <string name="email_login">E-mail</string>
     <string name="senha_login">Senha</string>
     <string name="btn_login">Bora</string>
-
 
 
 </resources>

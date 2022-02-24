@@ -3,13 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_add_jogo.xml" value="0.19010416666666666" />
         <entry key="app/src/main/res/layout/activity_cadastro.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/content_nav_drawer.xml" value="0.14814814814814814" />
-        <entry key="app/src/main/res/layout/intro1.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/intro1.xml" value="0.14224137931034483" />
         <entry key="app/src/main/res/layout/intro2.xml" value="0.19010416666666666" />
-        <entry key="app/src/main/res/layout/intro_cadastro.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/intro_cadastro.xml" value="0.25" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.18717948717948718" />
         <entry key="app/src/main/res/menu/nav_drawer.xml" value="0.22" />
       </map>

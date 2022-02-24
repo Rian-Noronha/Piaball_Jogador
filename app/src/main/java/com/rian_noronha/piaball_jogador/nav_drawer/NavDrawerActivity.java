@@ -1,5 +1,6 @@
 package com.rian_noronha.piaball_jogador.nav_drawer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.Menu;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 import com.rian_noronha.piaball_jogador.R;
+import com.rian_noronha.piaball_jogador.add_jogos.AddJogoActivity;
 import com.rian_noronha.piaball_jogador.databinding.ActivityNavDrawerBinding;
 
 import androidx.navigation.NavController;
@@ -34,8 +36,7 @@ public class NavDrawerActivity extends AppCompatActivity {
         binding.appBarNavDrawer.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(NavDrawerActivity.this, AddJogoActivity.class));
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

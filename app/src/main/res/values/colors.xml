@@ -7,4 +7,11 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!--Cor para o hint da interface de adicionar jogos-->
+    <color name="verde_fraco">#B7F4BA</color>
+
+    <!--Cor para o fundo do radio group da interface de adicionar jogos-->
+    <color name="fundoRadioGroup">#BEDFE2</color>
+
 </resources>
