@@ -22,4 +22,12 @@
         android:name="com.rian_noronha.piaball_jogador.nav_drawer.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_MediaMinicampo"
+        android:name="com.rian_noronha.piaball_jogador.nav_drawer.ui.media_minicampo.MediaMinicampoFragment"
+        android:label="@string/menu_media_minicampo"
+        tools:layout="@layout/fragment_media_minicampo"/>
+
+
 </navigation>

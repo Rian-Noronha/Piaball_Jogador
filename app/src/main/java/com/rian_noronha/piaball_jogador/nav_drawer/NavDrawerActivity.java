@@ -2,15 +2,19 @@ package com.rian_noronha.piaball_jogador.nav_drawer;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.rian_noronha.piaball_jogador.MainActivity;
 import com.rian_noronha.piaball_jogador.R;
 import com.rian_noronha.piaball_jogador.add_jogos.AddJogoActivity;
+import com.rian_noronha.piaball_jogador.config.ConfiguracaoFirebase;
 import com.rian_noronha.piaball_jogador.databinding.ActivityNavDrawerBinding;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -21,6 +25,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class NavDrawerActivity extends AppCompatActivity {
+
+    private FirebaseAuth firebaseAuth = ConfiguracaoFirebase.getFirebaseAuth();
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavDrawerBinding binding;
@@ -58,6 +64,30 @@ public class NavDrawerActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.nav_drawer, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+
+            case R.id.menu_sair:
+                this.firebaseAuth.signOut();
+                voltarIntroducao();
+                finish();
+
+                break;
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+    public void voltarIntroducao(){
+        startActivity(new Intent(this, MainActivity.class));
+    }
+
 
     @Override
     public boolean onSupportNavigateUp() {

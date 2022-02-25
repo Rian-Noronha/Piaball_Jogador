@@ -37,6 +37,6 @@
         android:gravity="center"
         android:text="Organização, rendimento, controle."
         android:textColor="@android:color/darker_gray"
-        android:textSize="15dp"
+        android:textSize="16dp"
         android:textStyle="bold" />
 </LinearLayout>

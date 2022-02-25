@@ -22,10 +22,13 @@ public class AddJogoActivity extends AppCompatActivity {
 
     private Button btnCadastrarJogo;
     private JogoJogador jogador;
+    private boolean radioModalidadeValidado = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_jogo);
+
+        getSupportActionBar().setTitle("Bote seu jogo");
 
         this.editData           = findViewById(R.id.editAddData);
         this.editGol            = findViewById(R.id.editAddGol);
@@ -69,38 +72,47 @@ public class AddJogoActivity extends AppCompatActivity {
 
                 boolean camposValidados = validarCampos(data, gol, assistencia, desarme, finalizacao, golTimeCasa, golTimeFora, notaJogador, timeCasa, rival);
 
+                if((radioMinicampo.isChecked() != false) || (radioCampoGrande.isChecked() != false)){
+                    radioModalidadeValidado = true;
+                }
+
                 if(camposValidados){
-                    //salvando o jogo do jogador de campo grande
-                    jogador = new JogoJogador();
 
-                    jogador.setData(data);
-                    jogador.setQntAssistencia(Integer.parseInt(assistencia));
-                    jogador.setQntDesarme(Integer.parseInt(desarme));
-                    jogador.setQntFinalizacao(Integer.parseInt(finalizacao));
-                    jogador.setGolSeuTime(Integer.parseInt(golTimeCasa));
-                    jogador.setGolTimeRival(Integer.parseInt(golTimeFora));
-                    jogador.setQntGol(Integer.parseInt(gol));
-                    jogador.setNotaPeloJogo(Integer.parseInt(notaJogador));
-                    jogador.setNomeSeuTime(timeCasa);
-                    jogador.setNomeTimeRival(rival);
-                    if(radioMinicampo.isChecked()){
-                        jogador.setModalidade("minicampo");
-                    }else if(radioCampoGrande.isChecked()){
-                        jogador.setModalidade("campo_grande");
+                    if(radioModalidadeValidado){
+                        //salvando o jogo do jogador de campo grande
+                        jogador = new JogoJogador();
+
+                        jogador.setData(data);
+                        jogador.setQntAssistencia(Integer.parseInt(assistencia));
+                        jogador.setQntDesarme(Integer.parseInt(desarme));
+                        jogador.setQntFinalizacao(Integer.parseInt(finalizacao));
+                        jogador.setGolSeuTime(Integer.parseInt(golTimeCasa));
+                        jogador.setGolTimeRival(Integer.parseInt(golTimeFora));
+                        jogador.setQntGol(Integer.parseInt(gol));
+                        jogador.setNotaPeloJogo(Integer.parseInt(notaJogador));
+                        jogador.setNomeSeuTime(timeCasa);
+                        jogador.setNomeTimeRival(rival);
+                        if(radioMinicampo.isChecked()){
+                            jogador.setModalidade("minicampo");
+                        }else if(radioCampoGrande.isChecked()){
+                            jogador.setModalidade("campo_grande");
+                        }
+
+                        if(radioAddVermelho.isChecked()){
+                            jogador.setTotVermelho(1);
+                        }
+
+                        if(radioAddUmAmarelo.isChecked()){
+                            jogador.setTotCartaoAmarelo(1);
+                        }else if(radioAddDoisAmarelos.isChecked()){
+                            jogador.setTotCartaoAmarelo(2);
+                        }
+
+                        jogador.salvar(data);
+                        finish();
+                    }else{
+                        mostrarToast("Bote a modalidade!");
                     }
-
-                    if(radioAddVermelho.isChecked()){
-                        jogador.setTotVermelho(1);
-                    }
-
-                    if(radioAddUmAmarelo.isChecked()){
-                        jogador.setTotCartaoAmarelo(1);
-                    }else if(radioAddDoisAmarelos.isChecked()){
-                        jogador.setTotCartaoAmarelo(2);
-                    }
-
-                    jogador.salvar(data);
-                    finish();
 
                 }
 

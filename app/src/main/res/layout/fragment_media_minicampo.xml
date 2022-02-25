@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".nav_drawer.ui.slideshow.SlideshowFragment">
+    tools:context=".nav_drawer.ui.media_minicampo.MediaMinicampoFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textSaudacaoMediasCampoGrande"
+            android:id="@+id/textSaudacaoMediasMinicampo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -36,13 +36,13 @@
 
 
         <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-            android:id="@+id/calendarViewMediasCampoGrande"
+            android:id="@+id/calendarViewMediasMinicampo"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSaudacaoMediasCampoGrande"
+            app:layout_constraintTop_toBottomOf="@+id/textSaudacaoMediasMinicampo"
             app:mcv_selectionColor="#00F"
             app:mcv_showOtherDates="all"
             app:mcv_tileSize="50dp" />
@@ -65,7 +65,7 @@
             android:textSize="16dp"
             app:layout_constraintBottom_toTopOf="@+id/textView65"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/textSaudacaoMediasCampoGrande" />
+            app:layout_constraintTop_toBottomOf="@+id/textSaudacaoMediasMinicampo" />
 
         <TextView
             android:id="@+id/textView68"
@@ -105,7 +105,7 @@
             app:layout_constraintGuide_percent="0.65" />
 
         <TextView
-            android:id="@+id/textMediaGolsCampoGrande"
+            android:id="@+id/textMediaGolsMinicampo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.00"
@@ -113,7 +113,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline9" />
 
         <TextView
-            android:id="@+id/textMediaAssistenciasCampoGrande"
+            android:id="@+id/textMediaAssistenciasMinicampo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.00"
@@ -121,7 +121,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline9" />
 
         <TextView
-            android:id="@+id/textMediaDesarmesCampoGrande"
+            android:id="@+id/textMediaDesarmesMinicampo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.00"
@@ -129,7 +129,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline9" />
 
         <TextView
-            android:id="@+id/textMediaCartaoAmareloCampoGrande"
+            android:id="@+id/textMediaCartaoAmareloMinicampo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.00"
@@ -137,7 +137,7 @@
             app:layout_constraintStart_toStartOf="@+id/guideline9" />
 
         <TextView
-            android:id="@+id/textMediaCartaoVermelhoCampoGrande"
+            android:id="@+id/textMediaCartaoVermelhoMinicampo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.00"
@@ -155,7 +155,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView70" />
 
         <TextView
-            android:id="@+id/textMediaFinalizacoesCampoGrande"
+            android:id="@+id/textMediaFinalizacoesMinicampo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0.00"
