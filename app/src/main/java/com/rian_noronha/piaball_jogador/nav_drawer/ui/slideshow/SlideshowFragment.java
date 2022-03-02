@@ -198,7 +198,8 @@ public class SlideshowFragment extends Fragment {
 
                 zerarValores();
 
-                jogosCampoGrandeRef.removeEventListener(valueEventListenerJogosCampoGrande);
+                //terá retorno nulo
+                //jogosCampoGrandeRef.removeEventListener(valueEventListenerJogosCampoGrande);
                 mostrarMedias();
             }
         });

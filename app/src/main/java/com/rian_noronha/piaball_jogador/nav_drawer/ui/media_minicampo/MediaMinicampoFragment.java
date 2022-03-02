@@ -233,7 +233,8 @@ public class MediaMinicampoFragment extends Fragment {
 
                 zerarValores();
 
-                jogosMinicampoRef.removeEventListener(valueEventListenerJogosMinicampo);
+                //terá retorno nulo
+                //jogosMinicampoRef.removeEventListener(valueEventListenerJogosMinicampo);
                 mostrarMedias();
             }
         });

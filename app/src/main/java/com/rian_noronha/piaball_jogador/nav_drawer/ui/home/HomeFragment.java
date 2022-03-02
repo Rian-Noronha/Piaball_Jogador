@@ -261,7 +261,8 @@ public class HomeFragment extends Fragment {
 
                 Log.i("MesAno", mesAnoSelecionado);
 
-                jogosCampoGrandeRef.removeEventListener(valueEventListenerJogosCampoGrande);
+                //terá retorno nulo
+                //jogosCampoGrandeRef.removeEventListener(valueEventListenerJogosCampoGrande);
                 recuperarJogosCampoGrande();
 
             }

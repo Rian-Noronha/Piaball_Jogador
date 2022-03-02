@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.rian_noronha.piaball_jogador.R;
@@ -16,9 +18,15 @@ import com.rian_noronha.piaball_jogador.model.JogoJogador;
 
 public class AddJogoActivity extends AppCompatActivity {
 
-    private EditText editData, editGol, editDesarme, editAssistencia, editFinalizacao, editRival, editTimeCasa, editGolTimeFora, editGolTimeCasa, editNota;
+    private TextView textGol, textDesarme, textAssistencia, textFinalizacao, textGolTimeFora, textGolTimeCasa, textNota;
+    private EditText editData,editRival, editTimeCasa;
+    private SeekBar seekBarGol, seekBarDesarme, seekBarAssistencia, seekBarFinalizacao, seekBarGolTimeFora, seekBarGolTimeCasa, seekBarNota;
     private RadioGroup radioGroupAddAmarelo, radioGroupModalidade;
     private RadioButton radioAddUmAmarelo, radioAddDoisAmarelos, radioAddVermelho, radioMinicampo, radioCampoGrande;
+
+
+    private Integer totGol, totDesarme, totAssistencia, totFinalizacao, totGolTimeFora, totGolTimeCasa, totNota;
+
 
     private Button btnCadastrarJogo;
     private JogoJogador jogador;
@@ -30,16 +38,27 @@ public class AddJogoActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Bote seu jogo");
 
-        this.editData           = findViewById(R.id.editAddData);
-        this.editGol            = findViewById(R.id.editAddGol);
-        this.editAssistencia    = findViewById(R.id.editAddAssistencia);
-        this.editDesarme        = findViewById(R.id.editAddDesarme);
-        this.editFinalizacao    = findViewById(R.id.editAddFinalizacao);
-        this.editGolTimeCasa    = findViewById(R.id.editAddGolTimeCasa);
-        this.editGolTimeFora    = findViewById(R.id.editAddGolTimeFora);
-        this.editNota           = findViewById(R.id.editAddNota);
-        this.editRival          = findViewById(R.id.editAddRival);
-        this.editTimeCasa       = findViewById(R.id.editAddTimeCasa);
+        textGol             = findViewById(R.id.textQntGols);
+        textDesarme         = findViewById(R.id.textQntDesarmes);
+        textAssistencia     = findViewById(R.id.textQntAssistencias);
+        textFinalizacao     = findViewById(R.id.textQntFinalizacoes);
+        textGolTimeCasa     = findViewById(R.id.textGolsTimeCasa);
+        textGolTimeFora     = findViewById(R.id.textGolsRival);
+        textNota            = findViewById(R.id.textNotaJogo);
+
+        editData        = findViewById(R.id.editDataJogo);
+        editRival       = findViewById(R.id.editRival);
+        editTimeCasa    = findViewById(R.id.editAddTimeCasa);
+
+
+        seekBarGol          = findViewById(R.id.seekBarQntGols);
+        seekBarDesarme      = findViewById(R.id.seekBarQntDesarmes);
+        seekBarAssistencia  = findViewById(R.id.seekBarQntAssistencias);
+        seekBarFinalizacao  = findViewById(R.id.seekBarQntFinalizacoes);
+        seekBarGolTimeCasa  = findViewById(R.id.seekBarQntGolsTimeCasa);
+        seekBarGolTimeFora  = findViewById(R.id.seekBarQntGolsRival);
+        seekBarNota         = findViewById(R.id.seekBarNotaJogo);
+
 
         //um e dois referem-se aos cartões amarelo que o jogador possa tomar na partida
         this.radioGroupAddAmarelo   = findViewById(R.id.radioGroupAddAmarelo);
@@ -56,21 +75,28 @@ public class AddJogoActivity extends AppCompatActivity {
         //mostrar data atual de cara para o jogador
         this.editData.setText(DateCustom.pegarDataAtual());
 
+
+        //pegar os eventos de mudança de cada seekBar
+        ouvirGols();
+        ouvirDesarmes();
+        ouvirAssistencia();
+        ouvirFinalizacao();
+        ouvirGolsTimeCasa();
+        ouvirGolsRival();
+        ouvirNotaJogo();
+
+
+
         this.btnCadastrarJogo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String gol          = editGol.getText().toString();
+
                 String data         = editData.getText().toString();
-                String assistencia  = editAssistencia.getText().toString();
-                String desarme      = editDesarme.getText().toString();
-                String finalizacao  = editFinalizacao.getText().toString();
-                String golTimeCasa  = editGolTimeCasa.getText().toString();
-                String golTimeFora  = editGolTimeFora.getText().toString();
-                String notaJogador  = editNota.getText().toString();
                 String timeCasa     = editTimeCasa.getText().toString();
                 String rival        = editRival.getText().toString();
 
-                boolean camposValidados = validarCampos(data, gol, assistencia, desarme, finalizacao, golTimeCasa, golTimeFora, notaJogador, timeCasa, rival);
+
+                boolean camposValidados = validarCampos(data, timeCasa, rival);
 
                 if((radioMinicampo.isChecked() != false) || (radioCampoGrande.isChecked() != false)){
                     radioModalidadeValidado = true;
@@ -83,13 +109,13 @@ public class AddJogoActivity extends AppCompatActivity {
                         jogador = new JogoJogador();
 
                         jogador.setData(data);
-                        jogador.setQntAssistencia(Integer.parseInt(assistencia));
-                        jogador.setQntDesarme(Integer.parseInt(desarme));
-                        jogador.setQntFinalizacao(Integer.parseInt(finalizacao));
-                        jogador.setGolSeuTime(Integer.parseInt(golTimeCasa));
-                        jogador.setGolTimeRival(Integer.parseInt(golTimeFora));
-                        jogador.setQntGol(Integer.parseInt(gol));
-                        jogador.setNotaPeloJogo(Integer.parseInt(notaJogador));
+                        jogador.setQntAssistencia(totAssistencia);
+                        jogador.setQntDesarme(totDesarme);
+                        jogador.setQntFinalizacao(totFinalizacao);
+                        jogador.setGolSeuTime(totGolTimeCasa);
+                        jogador.setGolTimeRival(totGolTimeFora);
+                        jogador.setQntGol(totGol);
+                        jogador.setNotaPeloJogo(totNota);
                         jogador.setNomeSeuTime(timeCasa);
                         jogador.setNomeTimeRival(rival);
                         if(radioMinicampo.isChecked()){
@@ -124,53 +150,172 @@ public class AddJogoActivity extends AppCompatActivity {
     }
 
 
+    public void ouvirAssistencia(){
+        totAssistencia = 0;
+        seekBarAssistencia.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                totAssistencia = progress;
+                textAssistencia.setText("Botando " + totAssistencia + " assistência(s)");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    public void ouvirGols(){
+        totGol = 0;
+        seekBarGol.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                totGol = progress;
+                textGol.setText("Botando " + totGol + " gol(s)");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    public void ouvirDesarmes(){
+        totDesarme = 0;
+        seekBarDesarme.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                totDesarme = progress;
+                textDesarme.setText("Botando " + totDesarme + " desarme(s)");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    public void ouvirFinalizacao(){
+        totFinalizacao = 0;
+        seekBarFinalizacao.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                totFinalizacao = progress;
+                textFinalizacao.setText("Botando " + totFinalizacao + " finalizão(ões)");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    public void ouvirGolsTimeCasa(){
+        totGolTimeCasa = 0;
+        seekBarGolTimeCasa.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                totGolTimeCasa = progress;
+                textGolTimeCasa.setText("Botando " + totGolTimeCasa + " gol(s) para o time da casa");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    public void ouvirGolsRival(){
+
+        totGolTimeFora = 0;
+        seekBarGolTimeFora.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                totGolTimeFora = progress;
+                textGolTimeFora.setText("Botando " + totGolTimeFora + " gol(s) para o time de fora");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+    public void ouvirNotaJogo(){
+        totNota = 0;
+        seekBarNota.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                totNota = progress;
+                textNota.setText("Botando " + totNota + " para sua nota pelo jogo");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
 
 
 
-    public boolean validarCampos(String data, String gol, String assistencia, String desarme, String finalizacao, String golTimeCasa, String golTimeFora, String nota, String timeCasa, String rival){
+    public boolean validarCampos(String data, String timeCasa, String rival){
 
         boolean camposValidados = false;
 
         if(!data.isEmpty()){
-            if(!gol.isEmpty()){
-                if(!assistencia.isEmpty()){
-                    if(!desarme.isEmpty()){
-                        if(!finalizacao.isEmpty()){
-                            if(!golTimeCasa.isEmpty()){
-                                if(!golTimeFora.isEmpty()){
-                                    if(!nota.isEmpty()){
-                                        if(!timeCasa.isEmpty()){
-                                            if(!rival.isEmpty()){
-                                                camposValidados = true;
-                                            }else{
-                                                mostrarToast("Entre com o nome do time rival!");
-                                            }
-                                        }else{
-                                            mostrarToast("Entre com o nome do seu time!");
-                                        }
-                                    }else{
-                                        mostrarToast("Entre com sua nota!");
-                                    }
-                                }else{
-                                    mostrarToast("Entre com os gols do time rival!");
-                                }
-                            }else{
-                                mostrarToast("Entre com os gols do seu time!");
-                            }
-                        }else{
-                            mostrarToast("Entre com suas finalizações!");
-                        }
-                    }else{
-                        mostrarToast("Entre com seus desarmes!");
-                    }
+            if(!timeCasa.isEmpty()){
+                if(!rival.isEmpty()){
+                    camposValidados = true;
                 }else{
-                    mostrarToast("Entre com suas assistências!");
+                    mostrarToast("Bote o time de fora*");
                 }
             }else{
-                mostrarToast("Entre com seus gols!");
+                mostrarToast("Bote o seu time*");
             }
         }else{
-            mostrarToast("Entre com a data!");
+            mostrarToast("Bote a data*");
         }
 
         return camposValidados;

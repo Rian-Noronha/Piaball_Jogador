@@ -253,7 +253,8 @@ public class GalleryFragment extends Fragment {
                 String mesSelecionado = String.format("%02d", (date.getMonth()));
                 mesAnoSelecionado = (mesSelecionado + "" + (date.getYear()));
 
-                jogosMinicampoRef.removeEventListener(valueEventListenerJogosMinicampo);
+                //terá retorno nulo
+                //jogosMinicampoRef.removeEventListener(valueEventListenerJogosMinicampo);
                 recuperarJogosMinicampo();
             }
         });
