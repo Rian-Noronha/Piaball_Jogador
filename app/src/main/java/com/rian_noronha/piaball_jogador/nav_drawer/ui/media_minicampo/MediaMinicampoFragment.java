@@ -112,7 +112,7 @@ public class MediaMinicampoFragment extends Fragment {
         this.textDesarmes               = view.findViewById(R.id.textMediaDesarmesMinicampo);
         this.textMediaFinalizacoes      = view.findViewById(R.id.textMediaFinalizacoesMinicampo);
         this.textMediaCartaoAmarelo     = view.findViewById(R.id.textMediaCartaoAmareloMinicampo);
-        this.textMediaCartaoVermelho    = view.findViewById(R.id.textMediaCartaoVermelhoMinicampo);
+        this.textMediaCartaoVermelho    = view.findViewById(R.id.textMediaCartaoVermelhoCampoGrande);
 
         this.calendarViewMediasMinicampo = view.findViewById(R.id.calendarViewMediasMinicampo);
         configurarCalendarViewMediasJogadorMinicampo();

@@ -1,168 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
     tools:context=".nav_drawer.ui.slideshow.SlideshowFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/textSaudacaoMediasCampoGrande"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="Texto de saudação"
+        android:textSize="18dp" />
 
-        <TextView
-            android:id="@+id/textSaudacaoMediasCampoGrande"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="15dp"
-            android:text="Veja suas médias:"
-            android:textSize="18dp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendarViewMediasCampoGrande"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="3dp"
+        app:mcv_selectionColor="#00F"
+        app:mcv_showOtherDates="all"
+        app:mcv_tileSize="50dp" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.10" />
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="6dp"
+        android:text="Média de Assistências"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
+    <TextView
+        android:id="@+id/textMediaAssistenciasCampoGrande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@color/fundoRadioGroup"
+        android:gravity="center"
+        android:text="0" />
 
-        <com.prolificinteractive.materialcalendarview.MaterialCalendarView
-            android:id="@+id/calendarViewMediasCampoGrande"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textSaudacaoMediasCampoGrande"
-            app:mcv_selectionColor="#00F"
-            app:mcv_showOtherDates="all"
-            app:mcv_tileSize="50dp" />
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="6dp"
+        android:text="Média de Gols"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView65"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Média de Gols:"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView68"
-            app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/textView67" />
+    <TextView
+        android:id="@+id/textMediaGolsCampoGrande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@color/fundoRadioGroup"
+        android:gravity="center"
+        android:text="0" />
 
-        <TextView
-            android:id="@+id/textView67"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Média de Assistências:"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView65"
-            app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/textSaudacaoMediasCampoGrande" />
+    <TextView
+        android:id="@+id/txt3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="6dp"
+        android:text="Média de Desarmes"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView68"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Média de Desarmes:"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView70"
-            app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/textView65" />
+    <TextView
+        android:id="@+id/textMediaDesarmesCampoGrande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@color/fundoRadioGroup"
+        android:gravity="center"
+        android:text="0" />
 
-        <TextView
-            android:id="@+id/textView70"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Média de Cartões Amarelos:"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView77"
-            app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/textView68" />
+    <TextView
+        android:id="@+id/txt4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="6dp"
+        android:text="Média de Finalizações"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView71"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Média de Cartões Vermelhos:"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/textView77" />
+    <TextView
+        android:id="@+id/textMediaFinalizacoesCampoGrande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@color/fundoRadioGroup"
+        android:gravity="center"
+        android:text="0" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.65" />
+    <TextView
+        android:id="@+id/txt5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="6dp"
+        android:text="Média Cartão Amarelo"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textMediaGolsCampoGrande"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0.00"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView65"
-            app:layout_constraintStart_toStartOf="@+id/guideline9" />
+    <TextView
+        android:id="@+id/textMediaCartaoAmareloCampoGrande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@color/fundoRadioGroup"
+        android:gravity="center"
+        android:text="0" />
 
-        <TextView
-            android:id="@+id/textMediaAssistenciasCampoGrande"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0.00"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView67"
-            app:layout_constraintStart_toStartOf="@+id/guideline9" />
+    <TextView
+        android:id="@+id/txt6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:padding="6dp"
+        android:text="Média Cartão Vermelho"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textMediaDesarmesCampoGrande"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0.00"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView68"
-            app:layout_constraintStart_toStartOf="@+id/guideline9" />
+    <TextView
+        android:id="@+id/textMediaCartaoVermelhoCampoGrande"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:background="@color/fundoRadioGroup"
+        android:gravity="center"
+        android:text="0" />
 
-        <TextView
-            android:id="@+id/textMediaCartaoAmareloCampoGrande"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0.00"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView70"
-            app:layout_constraintStart_toStartOf="@+id/guideline9" />
-
-        <TextView
-            android:id="@+id/textMediaCartaoVermelhoCampoGrande"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0.00"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView71"
-            app:layout_constraintStart_toStartOf="@+id/guideline9" />
-
-        <TextView
-            android:id="@+id/textView77"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Média de finalizações:"
-            android:textSize="16dp"
-            app:layout_constraintBottom_toTopOf="@+id/textView71"
-            app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/textView70" />
-
-        <TextView
-            android:id="@+id/textMediaFinalizacoesCampoGrande"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0.00"
-            app:layout_constraintBaseline_toBaselineOf="@+id/textView77"
-            app:layout_constraintStart_toStartOf="@+id/guideline9" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
